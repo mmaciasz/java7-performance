@@ -49,7 +49,6 @@ public class MainBenchmark {
                 personList.add(p.getValue());
             }
         }
-        log.info("Result size: {}", personList.size());
     }
 
 
