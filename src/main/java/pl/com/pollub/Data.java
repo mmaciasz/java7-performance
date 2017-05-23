@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by mmaciasz on 2017-03-09.
  */
-@State(Scope.Thread)
+@State(Scope.Group)
 public class Data {
 
     private static List<Person> persons;

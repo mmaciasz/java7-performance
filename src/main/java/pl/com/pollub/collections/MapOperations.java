@@ -1,12 +1,11 @@
-package pl.com.pollub.map;
+package pl.com.pollub.collections;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.Fork;
-import org.openjdk.jmh.annotations.Measurement;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
-import org.openjdk.jmh.annotations.Warmup;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.infra.Blackhole;
 import pl.com.pollub.Data;
 import pl.com.pollub.test.constants.Names;
@@ -21,9 +20,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by mmaciasz on 2017-03-09.
  */
-@Fork(2)
-@Warmup(iterations = 10)
-@Measurement(iterations = 10)
+@State(Scope.Thread)
 public class MapOperations {
 
     @Benchmark
