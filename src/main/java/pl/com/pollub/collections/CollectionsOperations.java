@@ -1,6 +1,5 @@
 package pl.com.pollub.collections;
 
-import javafx.util.Pair;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Mode;
@@ -8,6 +7,7 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 import pl.com.pollub.Data;
+import pl.com.pollub.test.dto.Pair;
 import pl.com.pollub.test.dto.Person;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class CollectionsOperations {
     public List<Pair<Person, Person>> pairPersons() {
         final List<Pair<Person, Person>> personPairs = new ArrayList<>();
         for (final Person person : Data.getPersons()) {
-            personPairs.add(new Pair<>(person, person.getPartner()));
+            personPairs.add(Pair.newPair(person, person.getPartner()));
         }
         return personPairs;
     }
