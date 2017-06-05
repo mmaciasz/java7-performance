@@ -1,11 +1,6 @@
 package pl.com.pollub.collections;
 
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.Mode;
-import org.openjdk.jmh.annotations.OutputTimeUnit;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import pl.com.pollub.Data;
 import pl.com.pollub.test.constants.Names;
@@ -39,6 +34,19 @@ public class MapOperations {
         }
         return personList;
     }
+
+
+    @Benchmark
+    @BenchmarkMode({Mode.AverageTime})
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public Map<Long, Person> toMap() {
+        Map<Long, Person> ret = new HashMap<>();
+        for (final Person person : Data.getPersons()) {
+            ret.put(person.getPersonId(), person);
+        }
+        return ret;
+    }
+
 
     @Benchmark
     @BenchmarkMode({Mode.AverageTime})
